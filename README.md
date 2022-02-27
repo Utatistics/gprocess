@@ -10,7 +10,7 @@ Core package contains a set of core modules required for the main Python class d
 
 - optimisation 
 
-Optimisation package implements multiple optimisation routines used for hyper-parameter tuning. So far conjugate gradient with line search method (CGL) and scaled conjugate gradient method are implemented.
+Optimisation package implements multiple optimisation routines used for hyper-parameter tuning. So far conjugate gradient with line search method (CGL) and scaled conjugate gradient method (SCG) are implemented.
 
 - pyd
 
