@@ -1,7 +1,7 @@
 # gprocess
 
 ## description
-'gprocess' is an original library designed to impplement the machine library algorithm called 'Gaussian Process.' The library is written in python and c++ from scrath, in a sense that it does not rely on any external libraries except NumPy.
+'gprocess' is an original library designed to implement the machine learning algorithm 'Gaussian Process.' The library is written in python and c++ from scrath, meaning that it does not rely on any external python libraries other than NumPy.
 
 ## packages contained
 - core

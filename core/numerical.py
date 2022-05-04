@@ -71,4 +71,3 @@ def numerical_hessian(f, x):
                 continue
             H[i,j] = numerical_diff2_partial(f, x, i, j)
     return H + H.T - np.diag(H.diagonal())
-
