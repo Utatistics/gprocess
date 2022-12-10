@@ -1,23 +1,35 @@
-<h1 align="center">
-<img src="/logo/gprocess.png" width="500">
+i<h1 align="center">
+<img src="/logo/gprocess.png" width="300">
 </h1><br>
 
+<img src="https://img.shields.io/badge/-Python-F9DC3E.svg?logo=python&style=flat">
+<img src="https://img.shields.io/badge/-Linux-6C6694.svg?logo=linux&style=flat">
+<img src="https://img.shields.io/badge/-Windows-0078D6.svg?logo=windows&style=flat">
+
 ## Overview
-'gprocess' is an original library designed to implement the machine learning algorithm 'Gaussian Process.' The library is written in python and c++ from scrath, meaning that it does not rely on any external python libraries other than NumPy.
+gprocess is an original library designed to implement the machine learning algorithm 'Gaussian Process'. The initial goal of the proejct includes the hands-on implementation of the ML algorithm and relevant optimazation methods, and therefore the gprocess does not rely on any existing ML library or frameworks. 
 
 ## Requirement
+The library is implemented in python and c++ and requires NumPy. See pyproject.toml for more detailed dependencies.
 
 ## Usage
+git clone https://github.com/Utatistics/gprocess.git
+pip install gprocess
 
-## packages contained
+## Description
+gprocess contains the following packges
+
 - core
 
-Core package contains a set of core modules required for the main Python class defined for this library i.e. GProcess. The package includes the class implementation itself as well as modules for numerical methods, likelihood and prediction, etc.
+contains a set of core modules required for the main Python class defined for this library (i.e. GProcess). The package includes the class implementation itself as well as modules for numerical methods, likelihood and prediction, etc.
 
 - optimisation 
 
-Optimisation package implements multiple optimisation routines used for hyper-parameter tuning. So far conjugate gradient with line search method (CGL) and scaled conjugate gradient method (SCG) are implemented.
+implements multiple optimisation routines used for hyper-parameter tuning: conjugate gradient with line search method (CGL) and scaled conjugate gradient method (SCG) are implemented.
 
 - pyd
 
-Pyd package contains the set of compiled binary files that are originally written in c++. These are experimental scripts to make computation faster. Running these programs on Python environment requires pybind11. 
+the set of compiled binary files that are originally written in c++; these are experimental scripts to make computation faster. Running these programs on Python environment requires pybind11.
+
+## License
+gprocess is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
