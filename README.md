@@ -1,4 +1,3 @@
-# gprocess
 <h1 align="center">
 <img src="/logo/gprocess.png" width="500">
 </h1><br>
