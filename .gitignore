@@ -1,0 +1,9 @@
+*.ipynb
+.ipynb_checkpoints
+__pycache__
+src/*/.ipynb_checkpoints
+src/*/__pycache__
+input
+output
+poetry.lock
+
