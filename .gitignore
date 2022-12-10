@@ -1,4 +1,6 @@
 *.ipynb
+.ipynb_checkpoints
 input
 output
+poetry.lock
 
