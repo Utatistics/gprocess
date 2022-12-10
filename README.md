@@ -14,10 +14,6 @@ gprocess is an original library designed to implement the machine learning algor
 ## Requirement
 The library is implemented in python and c++ and requires NumPy. See pyproject.toml for more detailed dependencies.
 
-## Usage
-* git clone https://github.com/Utatistics/gprocess.git
-* pip install gprocess
-
 ## Description
 gprocess contains the following packges
 
