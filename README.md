@@ -1,7 +1,12 @@
 # gprocess
+![gprocess](https://user-images.githubusercontent.com/50711507/206837712-2fc332a3-d761-4ad1-a2e6-a588980c947a.png)
 
-## description
+## Overview
 'gprocess' is an original library designed to implement the machine learning algorithm 'Gaussian Process.' The library is written in python and c++ from scrath, meaning that it does not rely on any external python libraries other than NumPy.
+
+## Requirement
+
+## Usage
 
 ## packages contained
 - core
