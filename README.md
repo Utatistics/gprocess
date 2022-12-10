@@ -1,4 +1,4 @@
-i<h1 align="center">
+<h1 align="center">
 <img src="/logo/gprocess.png" width="300">
 </h1><br>
 
@@ -13,8 +13,8 @@ gprocess is an original library designed to implement the machine learning algor
 The library is implemented in python and c++ and requires NumPy. See pyproject.toml for more detailed dependencies.
 
 ## Usage
-git clone https://github.com/Utatistics/gprocess.git
-pip install gprocess
+* git clone https://github.com/Utatistics/gprocess.git
+* pip install gprocess
 
 ## Description
 gprocess contains the following packges
