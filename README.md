@@ -21,13 +21,13 @@ The library is implemented in python and c++ and requires NumPy. See pyproject.t
 ## Description
 gprocess contains the following packges
 
-core<br>
+### core
 contains a set of core modules required for the main Python class defined for this library (i.e. GProcess). The package includes the class implementation itself as well as modules for numerical methods, likelihood and prediction, etc.
 
-optimisation<br>
+### optimisation
 implements multiple optimisation routines used for hyper-parameter tuning: conjugate gradient with line search method (CGL) and scaled conjugate gradient method (SCG) are implemented.
 
-pyd<br>
+### pyd
 the set of compiled binary files that are originally written in c++; these are experimental scripts to make computation faster. Running these programs on Python environment requires pybind11.
 
 ## License
