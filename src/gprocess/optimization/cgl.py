@@ -1,30 +1,28 @@
-# module doscription
-"""*******************************************************************************************************
-$ This module implements the optimisaiton routine 'cgl' required for .fit method in the main class 'GProcess'.
-$ Inner dependency:
-- gprocess.core.numerical
-- gprocess.core.likelihood
-
-*******************************************************************************************************"""
-# initialising the library
-import gprocess
-
-# outer dependency 
 import functools
 import numpy as np
 
-# test linking
-def test_cgl():
-    print("Hello, I'm cgl from optimisation!")
+from gprocess.core.numerical import numerical_diff, numerical_hessian
+from gprocess.core.likelihood import get_L, get_L_delta
 
-# line search implementation 
-def line_search(f, t_init, h_init, epsilon): # obtain the param t via gradient search routine 
+
+def line_search(f: function, t_init: np.float64, h_init: np.float64, epsilon: np.float64) -> np.float64: 
+    """obtain the param t via gradient search routine
+
+    Args
+    ----
+
+    Returns
+    -------
+
+    """
+
     t = t_init 
     h = h_init
+
     print('line search initialised...')
-    while abs(gprocess.numerical_diff(f, t) < epsilon):
+    while abs(numerical_diff(f, t) < epsilon):
         print('numerical diff evaluated!')
-        h = np.sign(gprocess.numerical_diff(f, h)) * abs(h)    
+        h = np.sign(numerical_diff(f, h)) * abs(h)    
         T = t
         Th = t + h 
         if f(T) < f(Th):
@@ -43,8 +41,18 @@ def line_search(f, t_init, h_init, epsilon): # obtain the param t via gradient s
     print('line search completed!')    
     return t
 
-# conjugate gradient method  
-def conjugate_gradient(theta_init, X, y, **kwargs): # the standard conjugate gradient method with line search
+
+def conjugate_gradient(theta_init: np.ndarray, X: np.ndarray, y: np.ndarray, **kwargs) -> np.ndarray:
+    """the standard conjugate gradient method with line search
+
+    Args
+    ----
+
+    Returns
+    -------
+
+    """
+
     kernel = kwargs.get('kernel','rbf_kernel')
     delta =  kwargs.get('delta',1e-5)
     iter_max = kwargs.get('iter_max',100)
@@ -55,9 +63,9 @@ def conjugate_gradient(theta_init, X, y, **kwargs): # the standard conjugate gra
     while cnt <= iter_max:
         # step 1: compute quadratic approximation 
         print('==== iteration {}: theta_current = {} ===='.format(cnt, theta_current))
-        L_delta = gprocess.get_L_delta(theta_current, X, y, kernel) # output is a vector     
-        likelihood_f = functools.partial(gprocess.get_L, X=X, y=y, kernel=kernel)
-        H = gprocess.numerical_hessian(f=likelihood_f, x=theta_current)
+        L_delta = get_L_delta(theta_current, X, y, kernel) # output is a vector     
+        likelihood_f = functools.partial(get_L, X=X, y=y, kernel=kernel)
+        H = numerical_hessian(f=likelihood_f, x=theta_current)
         if cnt == 1:
             alpha = 0
         else:

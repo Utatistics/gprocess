@@ -1,26 +1,19 @@
-# module doscription
-"""*****************************************************************************************
-$ This module implements functions related to likelihood required for the main class 'GProcess'
-$ Inner dependency:
-- gprocess.core.kernel
-
-*****************************************************************************************"""
-# initialising the library
 import gprocess
-
-# outer dependency 
+from gprocess.core.kernel import get_K
 import numpy as np
 
-# testing linking
-def test_likelihood():
-    print("Hello, I'm likelihood from core!")
     
-"""*********************************
-# likelihood function implementation
-*********************************"""
-# analytiaclly obtained likelihood function.
-def get_L(params, X, y, kernel):
-    K_theta = gprocess.get_K(params, X, kernel=kernel)
+def get_L(params: dict, X: np.ndarray, y: np.ndarray, kernel: str) -> np.float64:
+    """analytiaclly obtained likelihood function.
+
+    Args
+    ----
+
+    Returns
+    -------
+
+    """
+    K_theta = get_K(params=dict, X=X, kernel=kernel)
     K_theta_inv = np.linalg.inv(K_theta) # C++ IMPLEMENTATION!!
     det = np.linalg.det(K_theta) 
     if det == 0.0: # avoid divergence 
@@ -28,12 +21,30 @@ def get_L(params, X, y, kernel):
     else:
         return -np.log(det) - y.T @ K_theta_inv @ y # a positive definite and its dterminant
 
-# negative likelihood function 
-def get_L_neg(params, X, y, kernel):
+def get_L_neg(params: dict, X: np.ndarray, y: np.ndarray, kernel: str) -> np.float64:
+    """negative likelihood function 
+
+
+    Args
+    ----
+
+    Returns
+    -------
+
+    """
     return - get_L(params, X, y, kernel)
 
-# analytically derived gradient vector of likelihood function.
-def get_L_delta(params, X, y, kernel): 
+def get_L_delta(params: dict, X: np.ndarray, y: np.ndarray, kernel: str) -> np.ndarray:
+    """analytically derived gradient vector of likelihood function.
+
+    Args
+    ----
+
+    Returns
+    -------
+
+    """
+ 
     K_theta = gprocess.get_K(params, X, kernel=kernel)
     K_theta_inv = np.linalg.inv(K_theta) 
     L_delta = np.zeros_like(params)

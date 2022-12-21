@@ -1,21 +1,28 @@
 import numpy as np
-import pandas as pd 
-
  
-def rmnorm(mu: int, cov: int):
-    """
-    generate sampling from multicaraite Gaussian
+def rmnorm(mu: int, cov: int) -> np.ndarray:
+    """generate sampling from multicaraite Gaussian
+ 
+    Args
+    ----
+    mu : imt
+        multivariate function to be evaluated
+    x : np.float64
+        point of evaluation 
 
+    Returns
+    -------
+    
     """
+
     n = len(mu)
     L = np.linalg.cholesky(cov)
     x = np.random.normal(loc=0,scale=1,size=n)
     return L @ x + mu
 
 
-def generate_parameters(n: int):
-    """
-    generate GP paramters
+def generate_parameters(n: int) -> tuple(np.ndarray, np.ndarray):
+    """generate GP paramters
     """
     mu = np.random.normal(0, 1, n)
     C = np.identity(n)
