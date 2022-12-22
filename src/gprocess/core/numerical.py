@@ -1,8 +1,9 @@
 import numpy as np 
+from typing import Callable
 
 
-def numerical_diff(f: function, x: np.float64) -> np.float64:
-    """numerical diffrentiation
+def numerical_diff(f: Callable, x: np.float64) -> np.float64:
+    """get numerical derivative
     
     Args
     ----
@@ -19,8 +20,8 @@ def numerical_diff(f: function, x: np.float64) -> np.float64:
     h = 1e-4
     return (f(x + h) - f(x - h)) / (2 * h)
 
-def numerical_diff2(f: function, x) -> np.float64:
-    """numerical 2nd-order diffrentiation
+def numerical_diff2(f: Callable, np.float64], x) -> np.float64:
+    """get numerical 2nd-order derivative
     
     Args
     ----
@@ -39,8 +40,8 @@ def numerical_diff2(f: function, x) -> np.float64:
     df1 = numerical_diff(f,x - h)
     return (df0 - df1) / (2 * h)
 
-def numerical_gradient(f: function, x: np.ndarray) -> np.ndarray:
-    """numerical 2nd-order diffrentiation
+def numerical_gradient(f: Callable, x: np.ndarray) -> np.ndarray:
+    """get numerical gradient
     
     Args
     ----
@@ -67,8 +68,8 @@ def numerical_gradient(f: function, x: np.ndarray) -> np.ndarray:
 
     return grad 
 
-def numerical_diff_partial(f: function, x: np.ndarray, dim: int) -> np.ndarray:
-    """numerical 2nd-order diffrentiation
+def numerical_diff_partial(f: Callable, x: np.ndarray, dim: int) -> np.ndarray:
+    """get numerical partial derivative
     
     Args
     ----
@@ -91,8 +92,8 @@ def numerical_diff_partial(f: function, x: np.ndarray, dim: int) -> np.ndarray:
     x1 = tmp
     return (f(x0) - f(x1)) / (2 * h)
 
-def numerical_diff2_partial(f: function, x: np.ndarray, dim0: int, dim1: int) -> np.ndarray:
-    """numerical 2nd-order diffrentiation
+def numerical_diff2_partial(f: Callable, x: np.ndarray, dim0: int, dim1: int) -> np.ndarray:
+    """get numerical 2nd-order partial derivative
     
     Args
     ----
@@ -117,8 +118,8 @@ def numerical_diff2_partial(f: function, x: np.ndarray, dim0: int, dim1: int) ->
     df1 = numerical_diff_partial(f, x1, dim0) 
     return (df0 - df1) / (2 * h)
 
-def numerical_hessian(f: function, x: np.ndarray) -> np.ndarray:
-    """numerical 2nd-order diffrentiation
+def numerical_hessian(f: Callable, x: np.ndarray) -> np.ndarray:
+    """get numerical Hessian matrix
     
     Args
     ----

@@ -1,19 +1,23 @@
 import functools
 import numpy as np
+from typing import Callable
 
 from gprocess.core.matrix import Matrix
 from gprocess.core.numerical import numerical_diff, numerical_hessian
 from gprocess.core.likelihood import get_L, get_L_delta
 
 
-def line_search(f: function, t_init: np.float64, h_init: np.float64, epsilon: np.float64) -> np.float64: 
+def line_search(f: Callable[[np.float64], np.float64], t_init: np.float64, h_init: np.float64, epsilon: np.float64) -> np.float64: 
     """obtain the param t via gradient search routine
 
     Args
     ----
+    f : function
+
 
     Returns
     -------
+    t : np.float64
 
     """
 

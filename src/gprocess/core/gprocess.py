@@ -2,10 +2,10 @@ import time
 import numpy as np
 
 from gprocess.core.matrix import Matrix
-from gprocess.optimization.cgl import conjugate_gradient
-from gprocess.optimization.scg import scaled_conjugate_gradient
 from gprocess.core.kernel import get_K, get_K_off_diag
 from gprocess.core.likelihood import get_mle
+from gprocess.optimization.cgl import conjugate_gradient
+from gprocess.optimization.scg import scaled_conjugate_gradient
 from gprocess.core.prediction import get_xpred, get_ypred
 
 
@@ -41,13 +41,13 @@ class GProcess:
         """
   
         if self.kernel == 'rbf_kernel':
-            self.theta_init = np.array([1.25,.7])
+            self.theta_init = np.array([1.25, .7])
         elif self.kernel == 'rbf_kernel_linear':
-            self.theta_init = np.array([1.25,.7,1.])  
+            self.theta_init = np.array([1.25, .7,1.])  
         elif self.kernel == 'exponential':
             self.theta_init = np.array([1.])
         elif self.kernel == 'periodic':
-            self.theta_init = np.array([1.,1.]) 
+            self.theta_init = np.array([1., 1.]) 
         
     
     def fit(self, method='cgl'):
