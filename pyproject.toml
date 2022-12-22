@@ -4,11 +4,16 @@ version = "0.1.0"
 description = ""
 authors = ["Utashi Fujimoto <frusciante2580@gmail.com>"]
 readme = "README.md"
-packages = [{include = "gprocess", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+numpy = "^1.24.0"
 
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.19.4"
+matplotlib = "^3.6.2"
+pandas = "^1.5.2"
 
 [build-system]
 requires = ["poetry-core"]

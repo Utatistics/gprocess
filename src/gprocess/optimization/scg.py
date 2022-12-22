@@ -1,32 +1,35 @@
-# module doscription
-"""*******************************************************************************************************
-$ This module implements the optimisaiton routine 'scg' required for .fit method in the main class 'GProcess'.
-$ Inner dependency:
-- gprocess.core.numerical
-- gprocess.core.likelihood
-
-*******************************************************************************************************"""
-# initialising the library
-import gprocess
-
-# outer dependency 
 import functools
 import numpy as np
 
-# test linking
-def test_scg():
-    print("Hello, I'm scg from optimisation!!")
+from gprocess.core.matrix import Matrix
+from gprocess.core.numerical import numerical_gradient
+from gprocess.core.likelihood import get_L_ng
 
-# scaled conjugate gradient method  
-def scaled_conjugate_gradient(theta_init, X, y, **kwargs):
-    # initial value setting 
+def scaled_conjugate_gradient(matrix: Matrix, theta_init: np.ndarray, **kwargs) -> np.ndarray:
+    """scaled conjugate gradient method  
+
+    Args
+    ----
+     matrix : Matrix
+        dict-like object containing matrices
+    
+    theta_init : np.ndarray
+        initial value of theta
+
+    Returns
+    -------
+    theta : np.ndarray 
+        optimized theta 
+
+    """
+
     lmd_init = kwargs.get('lmd_init',1e-5)
     scale = kwargs.get('scale',1e-4) # constant parameter 
     epsilon =  kwargs.get('epsilon',1e-5) # for convergence check 
     
     kernel = kwargs.get('kernel','rbf_kernel')
-    likelihood_f_neg = functools.partial(gprocess.get_L_neg, X=X, y=y, kernel=kernel) # evaluates to scalar
-    E1 = functools.partial(gprocess.numerical_gradient, f=likelihood_f_neg) # evaluates to vector 
+    likelihood_f_neg = functools.partial(get_L_ng, matrix=matrix, kernel=kernel) # evaluates to scalar
+    E1 = functools.partial(numerical_gradient, f=likelihood_f_neg) # evaluates to vector 
 
     # scg routine implementation
     N = len(theta_init)
