@@ -19,7 +19,7 @@ def numerical_diff(f: function, x: np.float64) -> np.float64:
     h = 1e-4
     return (f(x + h) - f(x - h)) / (2 * h)
 
-def numerical_diff2(f: function, x):
+def numerical_diff2(f: function, x) -> np.float64:
     """numerical 2nd-order diffrentiation
     
     Args
@@ -67,7 +67,7 @@ def numerical_gradient(f: function, x: np.ndarray) -> np.ndarray:
 
     return grad 
 
-def numerical_diff_partial(f: function, x: np.ndarray, dim: int) -> np.ndarray: # x is a input vector
+def numerical_diff_partial(f: function, x: np.ndarray, dim: int) -> np.ndarray:
     """numerical 2nd-order diffrentiation
     
     Args

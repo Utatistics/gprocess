@@ -65,7 +65,7 @@ def get_K(params: dict, X: np.ndarray, kernel='rbf_kernel') -> np.ndarray:
                 K[i,j] = kernel_periodic(params,x_i=X[i],x_j=X[j])      
     return K + K.T - np.diag(K.diagonal())
 
-def get_K_delta(params: dict, d: int, X: np.ndarray, kernel='rbf_kernel') -> np.ndarray:
+def get_K_delta(params: dict, X: np.ndarray, d: int, kernel='rbf_kernel') -> np.ndarray:
     """
     kernel matrix differenciated wrt 'd' th parameter
     """
